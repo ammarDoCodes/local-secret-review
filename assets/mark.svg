@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#123c40"/><path d="M15 34V14h4l5 8 5-8h4v20h-4V21l-5 8-5-8v13z" fill="#d9f0e9"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" role="img" aria-label="Local Secret Review">
+  <rect x="1" y="1" width="38" height="38" rx="9" fill="#24292f"/>
+  <path d="M20 7 30 10.2v7.1c0 6.7-4 11.5-10 15.1-6-3.6-10-8.4-10-15.1v-7.1L20 7Z" fill="none" stroke="#f6f8fa" stroke-linejoin="round" stroke-width="1.9"/>
+  <path d="m15.3 19.5 3.1 3.1 6.5-7" fill="none" stroke="#3fb950" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"/>
+</svg>

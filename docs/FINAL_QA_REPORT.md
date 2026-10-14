@@ -15,7 +15,7 @@
 | Security fixes | Pass for tested items | Formula neutralization, file allowlist, host/method checks, and no-inline CSP are covered by tests/review. |
 | Critical/high unresolved issue | None known from focused review | See residual detector limitations and missing UI E2E below. |
 | Secret handling | Pass within stated scope | Project self-scan returned 0 matches for its own narrow rules; no real secrets are included. |
-| Desktop/mobile layout | Pass | No horizontal overflow at 1280 × 900 or 390 × 844. |
+| Desktop/mobile layout | Partial | Refreshed desktop overview visually inspected; historical 1280 × 900 and 390 × 844 measurements predate the redesign, and mobile was not remeasured. |
 | Browser console | Pass | No messages returned in the tested pages. |
 | README/report alignment | Pass | Documentation states supported rules, actual test results, and unverified steps. |
 | GitHub private repo/push | Blocked pending sign-in | New-repository page redirects to GitHub sign-in; the connected integration cannot create repositories. Local commit is prepared. See `GITHUB_RELEASE_REPORT.md`. |

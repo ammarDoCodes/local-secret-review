@@ -15,10 +15,10 @@
   <div class="app-shell">
     <aside class="sidebar" aria-label="Main navigation">
       <a class="brand" href="#overview" data-view-link="overview">
-        <span class="brand-mark" aria-hidden="true">L</span>
+        <img class="brand-mark" src="/assets/mark.svg" alt="">
         <span><strong>Local Secret Review</strong><small>Private code review</small></span>
       </a>
-      <div class="nav-label">WORKSPACE</div>
+      <div class="nav-label">SECURITY</div>
       <nav class="nav-list">
         <a href="#overview" data-view-link="overview" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span> Overview</a>
         <a href="#findings" data-view-link="findings"><span class="nav-icon" aria-hidden="true">⌕</span> Findings <span class="nav-count" id="nav-findings">0</span></a>
@@ -35,23 +35,23 @@
 
     <main id="main-content" class="main-area" tabindex="-1">
       <header class="topbar">
-        <div class="breadcrumb"><span>Workspace</span><span aria-hidden="true">/</span><strong id="page-heading">Overview</strong></div>
-        <div class="topbar-meta"><span class="local-indicator"><span class="online-dot"></span> Offline ready</span><span class="topbar-divider"></span><span class="version-label">v1.0</span></div>
+        <div class="breadcrumb"><span>Local workspace</span><span aria-hidden="true">/</span><strong id="page-heading">Overview</strong></div>
+        <div class="topbar-meta"><span class="local-indicator"><span class="online-dot"></span> Local only</span><span class="topbar-divider"></span><span class="version-label">v1.0</span></div>
       </header>
 
       <section class="view" data-view="overview">
         <div class="page-intro">
           <div>
-            <p class="eyebrow">LOCAL REPOSITORY REVIEW</p>
-            <h1>Find exposed credentials<br class="desktop-break"> before they travel.</h1>
-            <p class="intro-copy">Check a project folder for supported secret patterns. The scan runs in this browser, on your device.</p>
+            <p class="eyebrow">REPOSITORY SECURITY</p>
+            <h1>Find exposed credentials<br class="desktop-break"> in your local project.</h1>
+            <p class="intro-copy">Scan selected project files for supported secret patterns. Source stays on this device; no code is uploaded.</p>
           </div>
-          <div class="shield-art" aria-hidden="true"><span>⌑</span><i></i></div>
+          <div class="repo-visual" aria-hidden="true"><svg viewBox="0 0 148 132"><rect x="15" y="17" width="118" height="99" rx="8" fill="#fff" stroke="#d0d7de"/><path d="M15 41h118" stroke="#d0d7de"/><circle cx="28" cy="29" r="3" fill="#afb8c1"/><circle cx="39" cy="29" r="3" fill="#afb8c1"/><circle cx="50" cy="29" r="3" fill="#afb8c1"/><rect x="28" y="55" width="41" height="42" rx="5" fill="#ddf4ff"/><path d="M37 68h21M37 76h15M37 84h19" stroke="#0969da" stroke-width="3" stroke-linecap="round"/><rect x="79" y="55" width="42" height="42" rx="5" fill="#dafbe1"/><path d="m90 77 7 7 14-16" fill="none" stroke="#1f883d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 106h94" stroke="#d0d7de" stroke-linecap="round"/></svg><span><i></i> Local scan</span></div>
         </div>
 
         <div class="scan-panel">
           <div class="scan-panel-copy">
-            <div class="panel-heading"><span class="panel-icon" aria-hidden="true">⌁</span><div><h2>Start a local scan</h2><p>Choose a project folder. Source files are read locally and are never uploaded.</p></div></div>
+            <div class="panel-heading"><span class="panel-icon" aria-hidden="true">⌁</span><div><h2>Scan a project folder</h2><p>Choose a folder to review its working-tree files on this device.</p></div></div>
             <div class="scan-actions">
               <button class="button button-primary" id="choose-folder" type="button"><span aria-hidden="true">＋</span> Choose project folder</button>
               <input id="folder-input" type="file" webkitdirectory directory multiple hidden aria-label="Choose a project folder">
@@ -64,7 +64,7 @@
         <div class="scan-panel-aside"><span class="aside-label">DETECTION COVERAGE</span><div class="coverage-number">6<span> rules</span></div><p>Provider tokens, private key markers, and credential-like assignments.</p><a href="#guide" data-view-link="guide">See detection details <span aria-hidden="true">↗</span></a></div>
         </div>
 
-        <div class="section-heading"><div><p class="eyebrow">SCAN SUMMARY</p><h2>Current review</h2></div><span id="last-scan" class="last-scan">No scan yet</span></div>
+        <div class="section-heading"><div><p class="eyebrow">SECURITY SUMMARY</p><h2>Latest local scan</h2></div><span id="last-scan" class="last-scan">No scan yet</span></div>
         <div class="metric-grid">
           <article class="metric-card"><div class="metric-label">Files analyzed <span class="metric-icon">▤</span></div><div class="metric-value" id="analyzed-count">—</div><div class="metric-note">Selected working-tree files</div></article>
           <article class="metric-card"><div class="metric-label">Findings <span class="metric-icon">⌕</span></div><div class="metric-value" id="result-count">—</div><div class="metric-note">Matched supported patterns</div></article>

@@ -36,7 +36,7 @@ No persistent scan history, Git history scan, remote scan, provider validation, 
 
 ## Website and UI/UX
 
-The interface has Overview, Findings, and How it works views; summary values are populated only after a scan, and the empty Findings view is explicit. A desktop sidebar becomes horizontal mobile navigation. Browser width checks found no horizontal overflow at 1280 × 900 or 390 × 844. The scan was not completed through the browser's native folder picker during automated QA, so the live result, filter, review, and download UI actions need a manual smoke test.
+The interface has Overview, Findings, and How it works views; summary values are populated only after a scan, and the empty Findings view is explicit. The redesign follows the user-selected GitHub Code Security reference with compact security navigation, a local-workspace breadcrumb, neutral bordered panels, green primary actions, blue accents, and the original shield-check logo in assets/mark.svg. The existing mobile navigation and stacked scan panel are retained. Navigation smoke checks passed after the redesign; folder selection and live scan/export actions still need a manual end-to-end check.
 
 ## Testing results
 

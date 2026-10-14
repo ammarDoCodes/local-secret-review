@@ -25,6 +25,9 @@ The app uses an original compact workspace layout with a visible local-only stat
 
 Responsive behavior changes the desktop sidebar into a horizontal navigation row and stacks the scan panel on narrow screens. Semantic headings, labels, focus styling, status announcements, and `textContent` rendering support accessibility and safe handling of untrusted file paths.
 
+## Selected style direction
+
+The selected public reference is [GitHub Code Security](https://github.com/security/advanced-security/code-security). The redesign adopts a repository-oriented hierarchy, compact navigation, a workspace breadcrumb, clear security summaries, flat bordered panels, green action buttons, and blue links. These patterns are adapted to an offline folder scan, not to a GitHub-connected workflow. The shield-and-check mark in assets/mark.svg is an original Local Secret Review logo. Scanner behavior and privacy boundaries remain unchanged.
 ## Sources
 
 - [GitHub Secret Scanning](https://docs.github.com/en/code-security/concepts/secret-security/secret-scanning) and [GitHub Advanced Security billing](https://docs.github.com/en/billing/concepts/product-billing/github-advanced-security).
