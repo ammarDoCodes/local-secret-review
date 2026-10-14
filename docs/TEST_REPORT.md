@@ -20,7 +20,7 @@
 | Default launch | Ran `python serve.py`; opened the printed `127.0.0.1:9000` address. | Page and bundled assets loaded. |
 | Navigation and empty state | Opened How it works and Findings in the in-app Chromium browser. | Headings, privacy notes, limits, filters, and empty state appeared. |
 | Console | Read browser console after the pages loaded. | No console messages were returned. |
-| GitHub Security-inspired overview and logo | Reloaded the local app and inspected the updated overview screenshot; navigated Overview, Findings, and How it works. | New repository-oriented layout and original shield-check logo rendered; all three views remained navigable. |
+| Icons and light/dark themes | Reloaded the app, inspected SVG icons, switched themes with the header control, and refreshed. | Both palettes render on Overview and Findings; the accessible toggle updates its state and the dark preference persisted after refresh. |
 | Desktop responsive width | Browser viewport check before the redesign; the refreshed overview was visually inspected at the current desktop viewport. | Historical measurement was 1280 × 900 with no horizontal overflow; post-redesign dimensions were not measured. |
 | Mobile responsive width | Browser viewport override before the redesign. | Historical measurement was 390 × 844 with no horizontal overflow; mobile appearance after the redesign was not remeasured. |
 | Folder selection and live scan | Attempted the native directory picker using the in-app browser automation. | The automation did not expose a file-chooser event, so an end-to-end scan through the browser UI could not be verified in this environment. Scanner behavior is covered by Node fixtures; users should perform one manual scan after launch. |

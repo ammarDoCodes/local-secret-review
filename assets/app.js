@@ -20,6 +20,37 @@ const criticalCount = document.querySelector("#critical-count");
 const highCount = document.querySelector("#high-count");
 const mediumCount = document.querySelector("#medium-count");
 const lastScan = document.querySelector("#last-scan");
+const themeToggle = document.querySelector("#theme-toggle");
+const themeStorageKey = "local-secret-review-theme";
+
+function preferredTheme() {
+  try {
+    const savedTheme = window.localStorage.getItem(themeStorageKey);
+    if (savedTheme === "light" || savedTheme === "dark") return savedTheme;
+  } catch {
+    // Theme switching still works for this session when storage is unavailable.
+  }
+  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function applyTheme(theme, persist = false) {
+  document.documentElement.dataset.theme = theme;
+  const nextMode = theme === "dark" ? "light" : "dark";
+  themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
+  themeToggle.title = "Switch to " + nextMode + " mode";
+  if (persist) {
+    try {
+      window.localStorage.setItem(themeStorageKey, theme);
+    } catch {
+      // The selected theme remains active until this page closes.
+    }
+  }
+}
+
+applyTheme(preferredTheme());
+themeToggle.addEventListener("click", () => {
+  applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
+});
 
 let findings = [];
 let scanCompleted = false;

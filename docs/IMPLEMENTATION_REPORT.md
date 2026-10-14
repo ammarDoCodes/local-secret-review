@@ -36,7 +36,7 @@ No persistent scan history, Git history scan, remote scan, provider validation, 
 
 ## Website and UI/UX
 
-The interface has Overview, Findings, and How it works views; summary values are populated only after a scan, and the empty Findings view is explicit. The redesign follows the user-selected GitHub Code Security reference with compact security navigation, a local-workspace breadcrumb, neutral bordered panels, green primary actions, blue accents, and the original shield-check logo in assets/mark.svg. The existing mobile navigation and stacked scan panel are retained. Navigation smoke checks passed after the redesign; folder selection and live scan/export actions still need a manual end-to-end check.
+The interface has Overview, Findings, and How it works views; summary values populate after a scan, and the empty Findings view is explicit. It follows the user-selected GitHub Code Security reference with compact security navigation, a local-workspace breadcrumb, neutral panels, green primary actions, blue links, and the original shield-check logo in assets/mark.svg. Navigation and visual hierarchy now use consistent inline SVG icons. The header toggle follows the operating-system color preference by default and stores manual light/dark choices locally. Both palettes were inspected in the browser; mobile widths and folder-selection-to-results still need manual review.
 
 ## Testing results
 

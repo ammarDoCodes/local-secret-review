@@ -15,6 +15,7 @@
 | Security fixes | Pass for tested items | Formula neutralization, file allowlist, host/method checks, and no-inline CSP are covered by tests/review. |
 | Critical/high unresolved issue | None known from focused review | See residual detector limitations and missing UI E2E below. |
 | Secret handling | Pass within stated scope | Project self-scan returned 0 matches for its own narrow rules; no real secrets are included. |
+| Theme mode and icons | Pass | Consistent inline SVG icons; accessible light/dark toggle follows system preference and remembers manual selection. Both palettes were inspected in the browser. |
 | Desktop/mobile layout | Partial | Refreshed desktop overview visually inspected; historical 1280 × 900 and 390 × 844 measurements predate the redesign, and mobile was not remeasured. |
 | Browser console | Pass | No messages returned in the tested pages. |
 | README/report alignment | Pass | Documentation states supported rules, actual test results, and unverified steps. |
