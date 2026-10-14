@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Review supported credential patterns in local project files without uploading source code.">
+  <title>Local Secret Review</title>
+  <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/app.css">
+  <script type="module" src="/assets/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#overview" data-view-link="overview">
+        <span class="brand-mark" aria-hidden="true">L</span>
+        <span><strong>Local Secret Review</strong><small>Private code review</small></span>
+      </a>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="nav-list">
+        <a href="#overview" data-view-link="overview" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span> Overview</a>
+        <a href="#findings" data-view-link="findings"><span class="nav-icon" aria-hidden="true">⌕</span> Findings <span class="nav-count" id="nav-findings">0</span></a>
+        <a href="#guide" data-view-link="guide"><span class="nav-icon" aria-hidden="true">ⓘ</span> How it works</a>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="privacy-card">
+        <span class="privacy-icon" aria-hidden="true">◉</span>
+        <strong>Runs in your browser</strong>
+        <p>Selected files stay on this device. There are no uploads or third-party requests.</p>
+      </div>
+      <div class="sidebar-foot">LOCAL FIRST <span class="online-dot"></span></div>
+    </aside>
+
+    <main id="main-content" class="main-area" tabindex="-1">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Workspace</span><span aria-hidden="true">/</span><strong id="page-heading">Overview</strong></div>
+        <div class="topbar-meta"><span class="local-indicator"><span class="online-dot"></span> Offline ready</span><span class="topbar-divider"></span><span class="version-label">v1.0</span></div>
+      </header>
+
+      <section class="view" data-view="overview">
+        <div class="page-intro">
+          <div>
+            <p class="eyebrow">LOCAL REPOSITORY REVIEW</p>
+            <h1>Find exposed credentials<br class="desktop-break"> before they travel.</h1>
+            <p class="intro-copy">Check a project folder for supported secret patterns. The scan runs in this browser, on your device.</p>
+          </div>
+          <div class="shield-art" aria-hidden="true"><span>⌑</span><i></i></div>
+        </div>
+
+        <div class="scan-panel">
+          <div class="scan-panel-copy">
+            <div class="panel-heading"><span class="panel-icon" aria-hidden="true">⌁</span><div><h2>Start a local scan</h2><p>Choose a project folder. Source files are read locally and are never uploaded.</p></div></div>
+            <div class="scan-actions">
+              <button class="button button-primary" id="choose-folder" type="button"><span aria-hidden="true">＋</span> Choose project folder</button>
+              <input id="folder-input" type="file" webkitdirectory directory multiple hidden aria-label="Choose a project folder">
+              <button class="button button-secondary" id="run-scan" type="button" disabled>Run scan <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="scan-limits"><span class="limit-check" aria-hidden="true">✓</span> Up to 5,000 files <span class="limit-dot">·</span> 1 MB per file <span class="limit-dot">·</span> 50 MB total</div>
+            <div id="status-message" class="scan-status" role="status" aria-live="polite"></div>
+            <div id="scan-progress" class="progress-wrap" hidden><div class="progress-head"><span>Reading selected files locally</span><span id="progress-label"></span></div><progress value="0" max="100" aria-label="Scan progress"></progress></div>
+          </div>
+        <div class="scan-panel-aside"><span class="aside-label">DETECTION COVERAGE</span><div class="coverage-number">6<span> rules</span></div><p>Provider tokens, private key markers, and credential-like assignments.</p><a href="#guide" data-view-link="guide">See detection details <span aria-hidden="true">↗</span></a></div>
+        </div>
+
+        <div class="section-heading"><div><p class="eyebrow">SCAN SUMMARY</p><h2>Current review</h2></div><span id="last-scan" class="last-scan">No scan yet</span></div>
+        <div class="metric-grid">
+          <article class="metric-card"><div class="metric-label">Files analyzed <span class="metric-icon">▤</span></div><div class="metric-value" id="analyzed-count">—</div><div class="metric-note">Selected working-tree files</div></article>
+          <article class="metric-card"><div class="metric-label">Findings <span class="metric-icon">⌕</span></div><div class="metric-value" id="result-count">—</div><div class="metric-note">Matched supported patterns</div></article>
+          <article class="metric-card"><div class="metric-label">Files skipped <span class="metric-icon">↷</span></div><div class="metric-value" id="skipped-count">—</div><div class="metric-note">Limits, exclusions, or read errors</div></article>
+          <article class="metric-card metric-card-review"><div class="metric-label">Review status <span class="metric-icon">✓</span></div><div class="metric-value metric-review-value" id="reviewed-count">0 reviewed</div><div class="metric-note">Session only; not saved</div></article>
+        </div>
+
+        <div class="section-heading findings-heading"><div><p class="eyebrow">PRIORITY SNAPSHOT</p><h2>Findings by severity</h2></div><button class="text-button" type="button" data-open-view="findings">View findings <span aria-hidden="true">→</span></button></div>
+        <div class="severity-grid">
+          <article class="severity-card"><div class="severity-card-top"><span class="severity severity-critical">Critical</span><span aria-hidden="true">●</span></div><div class="severity-number" id="critical-count">—</div><p>Private-key indicators</p></article>
+          <article class="severity-card"><div class="severity-card-top"><span class="severity severity-high">High</span><span aria-hidden="true">●</span></div><div class="severity-number" id="high-count">—</div><p>Provider token patterns</p></article>
+          <article class="severity-card"><div class="severity-card-top"><span class="severity severity-medium">Medium</span><span aria-hidden="true">●</span></div><div class="severity-number" id="medium-count">—</div><p>Credential-like assignments</p></article>
+        </div>
+        <p class="disclaimer">A clean scan does not prove that a project contains no secrets. This tool checks only selected files and its documented pattern set.</p>
+      </section>
+
+      <section class="view" data-view="findings" hidden>
+        <div class="section-page-heading"><div><p class="eyebrow">REVIEW RESULTS</p><h1>Findings</h1><p>Matched values are never displayed or included in exported reports.</p></div><button class="button button-secondary" id="export-report" type="button" disabled>↓ Export safe report</button></div>
+        <div class="filter-bar"><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Search findings</span><input id="finding-search" type="search" placeholder="Search files or finding types"></label><label class="filter-select"><span class="sr-only">Filter by severity</span><select id="severity-filter"><option value="">All severities</option><option>Critical</option><option>High</option><option>Medium</option></select></label><span class="review-summary" id="result-count-label">Local results only</span></div>
+        <div class="table-shell"><table><thead><tr><th scope="col">Severity</th><th scope="col">Finding</th><th scope="col">Location</th><th scope="col">Suggested next step</th><th scope="col"><span class="sr-only">Review</span></th></tr></thead><tbody id="results-body"></tbody></table><div class="empty-results" id="empty-results"><span class="empty-icon" aria-hidden="true">⌕</span><strong>Your findings will appear here</strong><p>Choose a project folder and run a local scan to review supported credential patterns.</p><button class="text-button" type="button" data-open-view="overview">Go to overview <span aria-hidden="true">→</span></button></div></div>
+        <p class="table-note">Reports include file paths and line numbers only. They never contain the matched credential value.</p>
+      </section>
+
+      <section class="view" data-view="guide" hidden>
+        <div class="section-page-heading"><div><p class="eyebrow">TRANSPARENT BY DESIGN</p><h1>How it works</h1><p>A small local check to help developers catch common accidental credential exposures.</p></div></div>
+        <div class="guide-grid">
+          <article class="guide-card guide-card-wide"><div class="guide-number">01</div><div><h2>Files stay on your device</h2><p>Your browser reads the files you select and scans their text in memory. The app makes no network requests for file content and has no upload endpoint, account, or storage.</p><div class="privacy-callout"><span aria-hidden="true">◉</span><strong>Private by architecture:</strong> no matched value is rendered, saved, or written to the CSV report.</div></div></article>
+          <article class="guide-card"><div class="guide-number">02</div><h2>Pattern-based detection</h2><p>Six rules look for private-key markers, common provider token formats, and credential-like assignments. Assignment matches use a length and character-diversity heuristic.</p></article>
+          <article class="guide-card"><div class="guide-number">03</div><h2>Bounded working-tree scan</h2><p>The scan checks up to 5,000 files, 1 MB per file, and 50 MB total. It skips common generated and dependency directories, binary files, oversized files, and Git history.</p></article>
+          <article class="guide-card"><div class="guide-number">04</div><h2>Review, then rotate</h2><p>Findings include the path, line, detector, severity, and a suggested response. If a real credential has been committed, remove it from the repository and rotate it with the provider.</p></article>
+          <article class="guide-card guide-card-wide limitations-card"><div class="guide-number">!</div><div><h2>Know the limits</h2><p>This is a lightweight heuristic, not a replacement for Gitleaks, TruffleHog, GitHub Secret Scanning, or a security review. It does not scan Git history, binaries, ignored folders, remote repositories, or every provider format. False positives and missed secrets are possible. A match does not establish that a credential is active; a clean result does not establish that a repository is safe.</p><p>Reviewed status is kept only in the current page session. The downloadable CSV contains finding metadata and remediation guidance, but no secret values.</p></div></article>
+        </div>
+      </section>
+
+      <footer class="app-footer"><span>Local Secret Review</span><span>Heuristic aid · Not a security guarantee</span><a href="https://www.cisa.gov/small-and-medium-sized-business-resources" target="_blank" rel="noopener noreferrer">CISA small business guidance <span aria-hidden="true">↗</span></a></footer>
+    </main>
+  </div>
+</body>
+</html>
