@@ -2,7 +2,7 @@
 
 **Prepared:** 14 October 2026  
 **Project:** Local Secret Review  
-**Status:** Local prototype/MVP implemented and committed locally; private GitHub release is blocked pending GitHub sign-in.
+**Status:** Local prototype/MVP implemented, tested, and pushed to a verified private GitHub repository.
 
 ## Executive summary
 
@@ -52,7 +52,7 @@ The implementation supports the documented MVP scope and uses no production pack
 
 ## GitHub release
 
-The source is committed locally, but no remote repository has been created or pushed. Opening GitHub's new-repository page redirected to sign-in, and the connected GitHub integration supports existing repositories but exposes no repository-creation action. GitHub sign-in is the remaining external step; repository visibility, remote contents, and rendered README therefore cannot yet be verified. See [GITHUB_RELEASE_REPORT.md](GITHUB_RELEASE_REPORT.md).
+The project is pushed to the private [local-secret-review repository](https://github.com/ammarDoCodes/local-secret-review) on the main branch. GitHub displays Private, and the repository file list and rendered README were verified after the push. See [GITHUB_RELEASE_REPORT.md](GITHUB_RELEASE_REPORT.md).
 
 ## Limitations and remaining work
 
@@ -68,7 +68,7 @@ Market relevance, functional completeness, user experience, security posture, te
 
 ## Reproduction
 
-1. Use the project source in `M:\Project 4` or the included ZIP archive. A private clone URL will be available after GitHub sign-in and publication.
+1. Use the project source in `M:\Project 4` or the included ZIP archive. Clone the private repository with `git clone https://github.com/ammarDoCodes/local-secret-review.git`.
 2. Run `python serve.py` and open the local URL it prints (default port 9000).
 3. Choose a project folder and run a local scan in a supported Chromium browser.
 4. Run `npm test` and `python -m unittest discover -s tests -p 'test_*.py' -v` to reproduce automated checks.

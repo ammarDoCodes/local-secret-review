@@ -18,7 +18,7 @@
 | Desktop/mobile layout | Partial | Refreshed desktop overview visually inspected; historical 1280 × 900 and 390 × 844 measurements predate the redesign, and mobile was not remeasured. |
 | Browser console | Pass | No messages returned in the tested pages. |
 | README/report alignment | Pass | Documentation states supported rules, actual test results, and unverified steps. |
-| GitHub private repo/push | Blocked pending sign-in | New-repository page redirects to GitHub sign-in; the connected integration cannot create repositories. Local commit is prepared. See `GITHUB_RELEASE_REPORT.md`. |
+| GitHub private repo/push | Pass | Private repository created; main branch pushed. GitHub shows Private, expected files, and the rendered README. See `GITHUB_RELEASE_REPORT.md`. |
 
 ## Requirements traceability
 
@@ -46,11 +46,10 @@
 | Security posture | Needs Improvement | Data minimization and local server controls are tested. Heuristic coverage is narrow; no external scanner or penetration test was run. |
 | Test coverage | Needs Improvement | 17 automated tests; non-empty UI flow and file-picker integration remain unverified. |
 | Documentation | Ready | Research, requirements, architecture, threat model, test/security/implementation reports included. |
-| Deployment readiness | Blocked | Local run is verified; private GitHub creation/push has not been confirmed. No production hosting or customer operations are included. |
+| Deployment readiness | Ready for private prototype review | The private repository and main branch are verified. Production hosting and operations are not part of this release. |
 
 ## Remaining work
 
 1. Manually choose a safe sample folder in a supported Chromium browser, run a scan, mark a finding reviewed, filter it, and download/open the CSV to confirm end-to-end behavior.
 2. If using this beyond an MVP, add configurable or maintained comprehensive detection and a separately reviewed Git-history workflow.
 3. Validate the intended user and product value with developers/small teams.
-4. Sign in to GitHub, then create the private repository and push the prepared local commit; verify visibility and the rendered README.

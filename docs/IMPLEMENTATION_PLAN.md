@@ -10,7 +10,7 @@
 | 4 | Add detector tests and server-boundary tests; review privacy, XSS, CSV, and resource limits. | Complete with limitation | Node and Python suites pass. Folder selection was not automatable in the in-app browser. |
 | 5 | Compare public competitor workflows and create a responsive UI. | Complete | `COMPETITOR_UI_RESEARCH.md`; responsive viewport checks recorded in `TEST_REPORT.md`. |
 | 6 | Final QA, traceability, documentation, and archive. | Complete | `FINAL_QA_REPORT.md`, `IMPLEMENTATION_REPORT.md`, `GITHUB_RELEASE_REPORT.md`, and root ZIP archive. |
-| 7 | Create a private GitHub repository, commit, push, and verify. | Blocked pending sign-in | Local source is ready. The GitHub browser redirects to sign-in, and the connected GitHub integration has no repository-creation action. See `GITHUB_RELEASE_REPORT.md`. |
+| 7 | Create a private GitHub repository, commit, push, and verify. | Complete | Private visibility, main branch contents, and rendered README verified. See `GITHUB_RELEASE_REPORT.md`. |
 
 ## MVP implementation choices
 
